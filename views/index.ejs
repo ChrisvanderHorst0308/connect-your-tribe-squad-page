@@ -1,0 +1,101 @@
+<!-- import header -->
+<%- include('./partials/head') %>
+
+<body>
+<section class="filterbar">
+  <div class="filterPlaceHolder">    
+    <h2>Filter</h2>
+    </div>
+
+
+    <div class="circles">
+      <a class="circle" href="/?squad=squad-a-2022" id="circle_a" ><h2>A</h2></a>
+      <a class="circle" href="/?squad=squad-b-2022" id="circle_a"><h2>B</h2></a>
+      <a class="circle" href="/?squad=squat-c-2022" id="circle_a"><h2>C</h2></a>
+  
+    </div>
+
+  
+    
+</section>
+
+
+
+<main>
+<section class="membercard">
+  <% squad.members.forEach(member => { %>
+
+    <a class="Card" href="<%- member.website %>" target="_blank" >  
+      <div class="flip-card" data-aos="zoom-in-up" data-aos-duration="1000">
+        <div class="flip-card-inner" >
+          <div class="flip-card-front ">
+
+
+            <% 
+            const avatarUrl = member.avatar
+            if (avatarUrl !== "null" && avatarUrl) { 
+        %>
+            <img src="<%= member.avatar %>" alt="" class="card-image"drdfffff>
+        <% }else{ %>
+            <img src="/assets/placeholder.png" alt="" class="card-image">
+        <% } %>
+
+
+
+          </div>
+          <div class="flip-card-back">
+            <h2> <%= member.name %> </h2>
+            <h3> <%= member.surname %></h3>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </a>
+    
+</section>
+
+
+  <!-- <section class="memberCard" >
+
+    <% squad.members.forEach(member => { %>
+     <a class="Card" href="<%- member.website %>" target="_blank" >    
+    
+      <article data-aos="flip-right" data-aos-duration="1000" class="article_cardrs">
+      <% 
+                        const avatarUrl = member.avatar
+                        if (avatarUrl !== "null" && avatarUrl) { 
+                    %>
+                        <img src="<%= member.avatar %>" alt="" class="card-image"drdfffff>
+                    <% }else{ %>
+                        <img src="/assets/placeholder.png" alt="" class="card-image">
+                    <% } %>
+      
+        
+
+      <h2> <%= member.name %> </h2>
+      <h3> <%= member.surname %></h3>
+    </article>
+    <% }) %>
+    </a>
+  
+  </section> -->
+
+</main>
+
+
+</body>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+
+
+
+
+
+
+
+<%- include('./partials/foot') %>
+<!-- import footer -->
